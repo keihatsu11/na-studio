@@ -925,75 +925,48 @@ animation:
 floatingWA 3s ease-in-out infinite;
 }
 
-.floating-wa:hover{
+.floating-wa{
 
-transform:
-translateY(-6px);
+position:fixed !important;
 
-box-shadow:
-0 24px 60px
-rgba(53,84,134,.35);
-}
+right:24px !important;
+bottom:24px !important;
 
-.wa-icon{
+display:flex !important;
+align-items:center;
+gap:14px;
 
-width:54px;
-height:54px;
-
-border-radius:50%;
+text-decoration:none;
 
 background:
-rgba(255,255,255,.18);
+linear-gradient(
+135deg,
+#365486,
+#2A3D66
+);
 
-display:flex;
-align-items:center;
-justify-content:center;
+padding:
+16px 22px;
 
-font-size:24px;
-color:white;
+border-radius:
+999px;
 
-backdrop-filter:
-blur(8px);
-}
+box-shadow:
+0 18px 50px
+rgba(53,84,134,.28);
 
-.wa-text{
-color:white;
-}
+z-index:99999 !important;
 
-.wa-text span{
+transition:.35s;
 
-display:block;
+animation:
+floatingWA 3s ease-in-out infinite;
 
-font-size:13px;
-font-weight:400;
+width:auto !important;
 
-opacity:.88;
-}
+max-width:300px;
 
-.wa-text p{
-
-font-size:16px;
-font-weight:600;
-
-margin:0;
-}
-
-@keyframes floatingWA{
-
-0%{
-transform:
-translateY(0);
-}
-
-50%{
-transform:
-translateY(-5px);
-}
-
-100%{
-transform:
-translateY(0);
-}
+overflow:hidden;
 }
 
 
@@ -1003,26 +976,28 @@ translateY(0);
 
 .floating-wa{
 
-right:16px;
-bottom:16px;
+right:14px !important;
+bottom:14px !important;
 
 padding:
-14px 18px;
+12px 16px;
+
+max-width:240px;
 }
 
 .wa-icon{
 
-width:46px;
-height:46px;
+width:44px;
+height:44px;
 
-font-size:22px;
+font-size:20px;
 }
 
 .wa-text span{
-font-size:12px;
+font-size:11px;
 }
 
 .wa-text p{
-font-size:14px;
+font-size:13px;
 }
 }
