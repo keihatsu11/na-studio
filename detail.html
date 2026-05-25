@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href=
+"https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+
+<title>
+Detail Produk
+</title>
+
+<link rel="stylesheet"
+href="css/style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="container nav">
+
+<div class="logo">
+
+<img src=
+"assets/logo/logo.png">
+
+<span>
+NA Studio
+</span>
+
+</div>
+
+<nav>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="katalog.html">
+Katalog
+</a>
+
+</nav>
+
+<a class="wa-button"
+href=
+"https://wa.me/6281572129201"
+target="_blank">
+
+WhatsApp
+
+</a>
+
+</div>
+
+</header>
+
+
+
+<section class="section">
+
+<div class="container">
+
+<div
+id="detail-product"
+class="detail-container">
+
+</div>
+
+</div>
+
+</section>
+
+
+<script src=
+"https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js">
+</script>
+
+<script>
+
+function cleanText(text){
+    return String(text || "")
+    .trim()
+    .toLowerCase();
+}
+
+function getFolder(kategori){
+
+    kategori =
+    cleanText(kategori);
+
+    const map = {
+        "pernikahan":"pernikahan",
+        "khitan":"khitan",
+        "aqiqah":"aqiqah",
+        "ulang tahun":"ulangtahun"
+    };
+
+    return map[kategori]
+    || "pernikahan";
+}
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const kode =
+params.get("kode");
+
+Papa.parse(
+"data/products.csv",
+{
+download:true,
+header:true,
+skipEmptyLines:true,
+
+complete:function(results){
+
+const products =
+results.data;
+
+const product =
+products.find(p =>
+
+cleanText(
+p.kode
+)
+
+===
+
+cleanText(
+kode
+)
+
+);
+
+if(!product){
+
+document
+.getElementById(
+"detail-product"
+)
+.innerHTML =
+"<h2>Produk tidak ditemukan</h2>";
+
+return;
+}
+
+const folder =
+getFolder(
+product.kategori
+);
+
+const related =
+products.filter(p =>
+
+cleanText(
+p.kategori
+)
+
+===
+
+cleanText(
+product.kategori
+)
+
+&&
+
+cleanText(
+p.kode
+)
+
+!==
+
+cleanText(
+product.kode
+)
+
+).slice(0,4);
+
+document
+.getElementById(
+"detail-product"
+)
+.innerHTML =
+
+`
+
+<div class="detail-grid">
+
+    <div>
+
+        <img
+        class="detail-image preview-image"
+
+        src=
+        "assets/images/${folder}/${product.gambar}">
+
+    </div>
+
+    <div class="detail-info">
+
+        <div class="detail-code">
+            Kode Design
+        </div>
+
+        <h1>
+            ${product.kode}
+        </h1>
+
+        <div class="detail-category">
+            ${product.kategori}
+        </div>
+
+        <div class="detail-price">
+            Rp${Number(
+            product.harga
+            ).toLocaleString(
+            'id-ID'
+            )}/pcs
+        </div>
+
+        <p class="detail-desc">
+
+            ${(
+            product.deskripsi ||
+            "Desain undangan elegan dengan kualitas cetak terbaik untuk momen spesial Anda."
+            )
+            .replace(/\n/g,"<br>")}
+
+        </p>
+        <a
+        class="detail-button"
+
+        target="_blank"
+
+        href=
+        "https://wa.me/6281572129201?text=Halo kak, saya tertarik dengan undangan kode ${product.kode}">
+
+        Pesan via WhatsApp
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<section class="related-section">
+
+<h2 class="section-title">
+Rekomendasi Design Lain
+</h2>
+
+<div class="product-grid">
+
+${related.map(item => {
+
+const relatedFolder =
+getFolder(
+item.kategori
+);
+
+return `
+
+<div class="product-card">
+
+<a href=
+"detail.html?kode=
+${item.kode}">
+
+<img src=
+"assets/images/${relatedFolder}/${item.gambar}">
+
+</a>
+
+<h3>
+${item.kode}
+</h3>
+
+<p>
+${item.nama}
+</p>
+
+<span>
+Rp${Number(item.harga)
+.toLocaleString('id-ID')}/pcs
+</span>
+
+<a
+class="btn-detail"
+
+href=
+"detail.html?kode=
+${item.kode}">
+
+Lihat Detail
+
+</a>
+
+</div>
+
+`;
+
+}).join("")}
+
+</div>
+
+</section>
+
+`;
+
+}
+});
+
+</script>
+
+<!-- LIGHTBOX -->
+
+<div
+    id="lightbox"
+    class="lightbox">
+
+        <span
+        class="close-lightbox">
+
+        ×
+
+        </span>
+
+        <img
+        id="lightboxImage"
+    class="lightbox-content">
+
+</div>
+</body>
+</html>

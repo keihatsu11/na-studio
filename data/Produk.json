@@ -1,0 +1,17 @@
+[
+  {
+    "kode": "WD001",
+    "nama": "Elegant Wedding",
+    "kategori": "Pernikahan",
+    "harga": "2500",
+    "gambar": "assets/images/pernikahan/WD001.jpg"
+  },
+
+  {
+    "kode": "WD002",
+    "nama": "Elegant Blue",
+    "kategori": "Pernikahan",
+    "harga": "3000",
+    "gambar": "assets/images/pernikahan/WD002.jpg"
+  }
+]

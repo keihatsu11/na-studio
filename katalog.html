@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+    <link href=
+    "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width,
+    initial-scale=1.0">
+
+    <title>
+        Katalog - NA Studio
+    </title>
+
+    <link rel="stylesheet"
+    href="css/style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container nav">
+
+        <div class="logo">
+
+            <img
+            src="assets/logo/logo.png">
+
+            <span>
+                NA Studio
+            </span>
+
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="katalog.html">
+                Katalog
+            </a>
+
+        </nav>
+
+        <a class="wa-button"
+        href="https://wa.me/6281572129201"
+        target="_blank">
+
+        WhatsApp
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<section class="section">
+
+<div class="container">
+
+<h1 class="section-title">
+Katalog Undangan
+</h1>
+
+
+<input
+type="text"
+id="searchInput"
+class="search-box"
+placeholder="Cari kode desain...">
+
+
+<div class="category-filter">
+
+<button
+data-category="semua">
+Semua
+</button>
+
+<button
+data-category="pernikahan">
+Pernikahan
+</button>
+
+<button
+data-category="khitan">
+Khitan
+</button>
+
+<button
+data-category="aqiqah">
+Aqiqah
+</button>
+
+<button
+data-category="ulang tahun">
+Ulang Tahun
+</button>
+
+</div>
+
+
+<div
+class="product-grid"
+id="product-list">
+
+</div>
+
+<div class="load-more-container">
+
+    <button
+    id="loadMoreBtn"
+    class="load-more-btn">
+
+    Muat Lebih Banyak
+
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<script src="js/script.js">
+</script>
+
+<!-- HOVER PREVIEW -->
+
+<div
+id="hoverPreview"
+class="hover-preview">
+
+    <img
+    id="hoverPreviewImage">
+
+</div>
+</body>
+</html>
