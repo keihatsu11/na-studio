@@ -883,92 +883,121 @@ transparent 70%
 z-index:-1;
 pointer-events:none;
 }
-/* ===================
-FLOATING WHATSAPP
-=================== */
-
-.floating-wa{
-
-position:fixed;
-
-right:24px;
-bottom:24px;
-
-display:flex;
-align-items:center;
-gap:14px;
-
-text-decoration:none;
-
-background:
-linear-gradient(
-135deg,
-#365486,
-#2A3D66
-);
-
-padding:
-16px 22px;
-
-border-radius:
-999px;
-
-box-shadow:
-0 18px 50px
-rgba(53,84,134,.28);
-
-z-index:9999;
-
-transition:.35s;
-
-animation:
-floatingWA 3s ease-in-out infinite;
-}
+/* ======================
+FIX FLOATING WHATSAPP
+====================== */
 
 .floating-wa{
 
 position:fixed !important;
 
-right:24px !important;
-bottom:24px !important;
+right:20px !important;
+bottom:20px !important;
+
+z-index:999999 !important;
 
 display:flex !important;
-align-items:center;
-gap:14px;
+align-items:center !important;
 
-text-decoration:none;
+gap:12px;
+
+text-decoration:none !important;
 
 background:
 linear-gradient(
 135deg,
 #365486,
 #2A3D66
-);
+) !important;
 
 padding:
-16px 22px;
+14px 20px !important;
 
 border-radius:
-999px;
+999px !important;
 
 box-shadow:
-0 18px 50px
-rgba(53,84,134,.28);
-
-z-index:99999 !important;
-
-transition:.35s;
-
-animation:
-floatingWA 3s ease-in-out infinite;
+0 12px 40px
+rgba(0,0,0,.18) !important;
 
 width:auto !important;
 
-max-width:300px;
+max-width:280px !important;
 
-overflow:hidden;
+transition:.3s ease !important;
+
+animation:
+waFloat 2.5s ease-in-out infinite;
 }
 
+.floating-wa:hover{
+
+transform:
+translateY(-4px);
+}
+
+.wa-icon{
+
+width:50px;
+height:50px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.16);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:22px;
+color:white;
+
+flex-shrink:0;
+}
+
+.wa-text{
+
+display:flex;
+flex-direction:column;
+}
+
+.wa-text span{
+
+font-size:12px;
+color:white;
+opacity:.85;
+line-height:1.2;
+}
+
+.wa-text p{
+
+font-size:15px;
+font-weight:600;
+
+color:white;
+
+margin:0;
+line-height:1.2;
+}
+
+@keyframes waFloat{
+
+0%{
+transform:
+translateY(0);
+}
+
+50%{
+transform:
+translateY(-5px);
+}
+
+100%{
+transform:
+translateY(0);
+}
+}
 
 /* MOBILE */
 
@@ -980,9 +1009,9 @@ right:14px !important;
 bottom:14px !important;
 
 padding:
-12px 16px;
+12px 16px !important;
 
-max-width:240px;
+max-width:240px !important;
 }
 
 .wa-icon{
