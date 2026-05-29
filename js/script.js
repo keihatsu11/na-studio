@@ -6,6 +6,7 @@ let visibleItems = 20;
 
 let selectedCategory = "semua";
 let selectedPrice = "semua";
+let selectedSort = "default";
 
 function cleanText(text){
 return String(text || "")
@@ -228,6 +229,37 @@ keywordMatch
 );
 
 });
+/* SORT HARGA */
+
+if(
+selectedSort
+=== "low-high"
+){
+
+filteredProducts.sort(
+(a,b)=>
+
+Number(a.harga)
+-
+Number(b.harga)
+);
+
+}
+
+if(
+selectedSort
+=== "high-low"
+){
+
+filteredProducts.sort(
+(a,b)=>
+
+Number(b.harga)
+-
+Number(a.harga)
+);
+
+}
 
 visibleItems = 20;
 
@@ -357,6 +389,20 @@ document
 ?.addEventListener(
 "change",
 function(){
+document
+.getElementById(
+"sortPrice"
+)
+?.addEventListener(
+"change",
+function(){
+
+selectedSort =
+this.value;
+
+applyFilters();
+
+});
 
 selectedPrice =
 this.value;
