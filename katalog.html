@@ -95,32 +95,93 @@ class="search-box"
 placeholder="Cari kode desain...">
 
 
-<div class="category-filter">
+<!-- FILTER PREMIUM -->
+
+<div class="filter-wrapper">
 
 <button
-data-category="semua">
+id="toggleFilter"
+class="filter-toggle">
+
+Filter Produk
+&#9662;
+
+</button>
+
+<div
+id="filterPanel"
+class="filter-panel">
+
+<div class="filter-group">
+
+<h3>
+Kategori
+</h3>
+
+<select id="categoryFilter">
+
+<option value="semua">
 Semua
-</button>
+</option>
 
-<button
-data-category="pernikahan">
+<option value="pernikahan">
 Pernikahan
-</button>
+</option>
 
-<button
-data-category="khitan">
+<option value="khitan">
 Khitan
-</button>
+</option>
 
-<button
-data-category="aqiqah">
+<option value="aqiqah">
 Aqiqah
-</button>
+</option>
 
-<button
-data-category="ulang tahun">
+<option value="ulang tahun">
 Ulang Tahun
-</button>
+</option>
+
+</select>
+
+</div>
+
+
+<div class="filter-group">
+
+<h3>
+Harga
+</h3>
+
+<select id="priceFilter">
+
+<option value="semua">
+Semua Harga
+</option>
+
+<option value="900-1000">
+900 - 1000
+</option>
+
+<option value="1000-2000">
+1000 - 2000
+</option>
+
+<option value="2000-3000">
+2000 - 3000
+</option>
+
+<option value="3000-4000">
+3000 - 4000
+</option>
+
+<option value="4000+">
+4000+
+</option>
+
+</select>
+
+</div>
+
+</div>
 
 </div>
 
